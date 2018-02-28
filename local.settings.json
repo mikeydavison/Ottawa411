@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "QnAKnowledgebaseId": "763f3977-d0e6-46e9-b32b-9bf86eb0a3fe",
+    "QnASubscriptionKey": "d8eccf2b29e54cb6acb37349226ed569",
+	"LuisAppID": "d5038322-7264-4ed7-bf6e-cf1bbed5f347",
+	"LuisSubscriptionKey": "5d213e59ecee4c88b2ef5d71e3b14a31"
+  },
+  "ConnectionStrings": {}
+}

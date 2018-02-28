@@ -1,0 +1,148 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "Ottawa411",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "CityContact"
+    },
+    {
+      "name": "GarbagePickup"
+    },
+    {
+      "name": "GoLeafsGo"
+    },
+    {
+      "name": "MissedGarbagePickup"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "CityServiceProvider"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "garbage wasn't picked up today",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "go leaf go",
+      "intent": "GoLeafsGo",
+      "entities": []
+    },
+    {
+      "text": "how do i contact the police",
+      "intent": "CityContact",
+      "entities": [
+        {
+          "entity": "CityServiceProvider",
+          "startPos": 21,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "i love the toronto maple leafs",
+      "intent": "GoLeafsGo",
+      "entities": []
+    },
+    {
+      "text": "my garbage was skipped today",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "my garbage wasn't picked up today, will you return?",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "on which day will my garbage be picked up?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "the leafs are great",
+      "intent": "GoLeafsGo",
+      "entities": []
+    },
+    {
+      "text": "what is garbage day?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "when do they collect garbage?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "when is garbage collected?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "when is garbage collection?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "when is garbage day?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "when is my next garbage collection day?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "which day is garbage picked up on?",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "whne is grabage day",
+      "intent": "GarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "who do i talk to about the police",
+      "intent": "CityContact",
+      "entities": [
+        {
+          "entity": "CityServiceProvider",
+          "startPos": 27,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "you forgot to get my garbage",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "you forgot to pickup my garbage?",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    },
+    {
+      "text": "you missed my garbage pick up today. will you come back?",
+      "intent": "MissedGarbagePickup",
+      "entities": []
+    }
+  ]
+}
