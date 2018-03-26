@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using System.Threading;
 
 [Serializable]
 public class GarbageDialog : IDialog<object>
@@ -9,27 +10,17 @@ public class GarbageDialog : IDialog<object>
 	{
 	}
 
-    public async Task StartAsync(IDialogContext context)
+    public Task StartAsync(IDialogContext context)
     {
-        /*try
-        {
-            context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.");
+        var m = context.MakeMessage();
+        m.Text = "Foo";
+        context.PostAsync(m, CancellationToken.None);
 
-            context.Wait(MessageReceivedAsync);
-        }
-        catch (OperationCanceledException error)
-        {
-            return Task.FromCanceled(error.CancellationToken);
-        }
-        catch (Exception error)
-        {
-            return Task.FromException(error);
-        }
-
-        return Task.CompletedTask;*/
-        await context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.");
+        //context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.", CancellationToken.None);
 
         context.Wait(MessageReceivedAsync);
+
+        return Task.CompletedTask;
     }
 
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
