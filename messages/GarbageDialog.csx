@@ -11,22 +11,25 @@ public class GarbageDialog : IDialog<object>
 
     public async Task StartAsync(IDialogContext context)
     {
-        try
+        /*try
         {
-            await context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.");
+            context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.");
 
             context.Wait(MessageReceivedAsync);
         }
         catch (OperationCanceledException error)
         {
-            //return Task.FromCanceled(error.CancellationToken);
+            return Task.FromCanceled(error.CancellationToken);
         }
         catch (Exception error)
         {
-            //return Task.FromException(error);
+            return Task.FromException(error);
         }
 
-        //return Task.CompletedTask;
+        return Task.CompletedTask;*/
+        await context.PostAsync("Garbage pickup?  I can help with that.  Please tell me your postal code.");
+
+        context.Wait(MessageReceivedAsync);
     }
 
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
