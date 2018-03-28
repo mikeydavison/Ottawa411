@@ -14,24 +14,9 @@ using Newtonsoft.Json.Linq;
 [Serializable]
 public class OttawaBotDialog : IDialog<object>
 {
-    protected int count = 1;
-
-    public Task StartAsync(IDialogContext context)
+    public async Task StartAsync(IDialogContext context)
     {
-        try
-        {
-            context.Wait(MessageReceivedAsync);
-        }
-        catch (OperationCanceledException error)
-        {
-            return Task.FromCanceled(error.CancellationToken);
-        }
-        catch (Exception error)
-        {
-            return Task.FromException(error);
-        }
-
-        return Task.CompletedTask;
+        context.Wait(MessageReceivedAsync);
     }
 
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
@@ -43,7 +28,7 @@ public class OttawaBotDialog : IDialog<object>
         JObject intent = await LUISClient.AskLUIS(message.Text);
 
         //see if a custom dialog has been created to handle the intent
-        IDialog<object> dialog = CustomDialogFactory.CreateDialog(intent);
+        IDialog<string> dialog = CustomDialogFactory.CreateDialog(intent);
         if (dialog != null)
         {
             context.Call(dialog, this.AfterComplexDialog);
@@ -73,20 +58,5 @@ public class OttawaBotDialog : IDialog<object>
     {
         await context.PostAsync("Is there anything else I can help you with?");
         context.Wait(this.MessageReceivedAsync);
-    }
-
-    public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument)
-    {
-        var confirm = await argument;
-        if (confirm)
-        {
-            this.count = 1;
-            await context.PostAsync("Reset count.");
-        }
-        else
-        {
-            await context.PostAsync("Did not reset count.");
-        }
-        context.Wait(MessageReceivedAsync);
     }
 }

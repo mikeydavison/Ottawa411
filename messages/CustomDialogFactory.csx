@@ -13,7 +13,7 @@ public class CustomDialogFactory
 	{
 	}
 
-    public static IDialog<object> CreateDialog(JObject intents)
+    public static IDialog<string> CreateDialog(JObject intents)
     {
         var top = intents["topScoringIntent"];
         float score = (float)top["score"];
@@ -25,7 +25,7 @@ public class CustomDialogFactory
         switch(intentTag)
         {
             case "GarbagePickup":
-                return (IDialog<object>)(new GarbageDialog());
+                return (IDialog<string>)(new GarbageDialog());
         }
         return null;
     }
