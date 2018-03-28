@@ -9,7 +9,7 @@ public class GarbageDialog : IDialog<string>
     public async Task StartAsync(IDialogContext context)
     {
         var m = context.MakeMessage();
-        m.Text = "Foo";
+        m.Text = "Garbage collection schedule?  I can help with that.  Please enter your postal code.";
         await context.PostAsync(m, CancellationToken.None);
 
         context.Wait(MessageReceivedAsync);
